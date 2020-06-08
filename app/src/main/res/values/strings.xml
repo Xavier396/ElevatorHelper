@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ElevatorHelper</string>
+    <string name="count_down_animation">Count down Animation</string>
+    <string name="cont_down_second">5</string>
+    <string name="welcome_using">欢迎使用</string>
+    <string name="title_activity_menu">MainActivity</string>
+    <string name="title_home">主页面</string>
+    <string name="title_dashboard">故障报修</string>
+    <string name="title_notifications">我</string>
 </resources>
