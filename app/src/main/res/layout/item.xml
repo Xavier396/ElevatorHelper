@@ -7,14 +7,7 @@
         android:layout_alignParentEnd="true"
         android:layout_width="60dp"
         android:layout_height="60dp"/>
-    <RatingBar
-        android:id="@+id/liked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/status_icon"
-        android:numStars="1"
-        android:stepSize="1"
-        />
+
     <TextView
         android:id="@+id/elevator_title"
         android:layout_width="wrap_content"

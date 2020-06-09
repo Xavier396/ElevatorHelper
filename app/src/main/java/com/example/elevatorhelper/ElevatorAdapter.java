@@ -24,11 +24,12 @@ public class ElevatorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.source = source;
         this.context = context;
     }
-    private View.OnClickListener onClickListener=null;
+    private OnItemClickListener onClickListener=null;
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
+    public void setOnClickListener(OnItemClickListener onClickListener) {
         this.onClickListener = onClickListener;
     }
+
     //回调接口
     public interface OnItemClickListener{
         void onItemClick(View v,int position);
@@ -40,13 +41,13 @@ public class ElevatorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         View v=null;
         v= LayoutInflater.from(context).inflate(R.layout.item,parent,false);
         RecyclerView.ViewHolder holder=null;
-        holder=new
-    //TODO:未完成的代码
+        holder=new MyViewHolder(v,onClickListener);
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+        //TODO:绑定页面
     }
 
     @Override
@@ -60,7 +61,7 @@ public class ElevatorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public MyViewHolder(View itemView, final OnItemClickListener onClickListener) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
-            source = itemView.findViewById(R.id.source);//FIXME：
+//            source = itemView.findViewById(R.id.source);//FIXME：
             time = itemView.findViewById(R.id.time);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

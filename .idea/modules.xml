@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ElevatorHelper.iml" filepath="$PROJECT_DIR$/ElevatorHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ElevatorHelper.iml" filepath="$PROJECT_DIR$/ElevatorHelper.iml" group="ElevatorHelper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="ElevatorHelper/app" />
     </modules>
   </component>
 </project>
