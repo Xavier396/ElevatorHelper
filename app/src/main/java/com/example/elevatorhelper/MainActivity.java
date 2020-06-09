@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -16,6 +15,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.elevatorhelper.Impl.DBMaker;
 import com.example.elevatorhelper.databinding.ActivityMainBinding;
 import com.example.elevatorhelper.pojo.Elevator;
 import com.example.elevatorhelper.pojo.Issue;
@@ -99,7 +99,15 @@ public class MainActivity extends AppCompatActivity {
             db = dbMaker.getWritableDatabase();
             for (Elevator e : e_list) {
 //TODO：在这里添加SQL生成语句
+                db.execSQL("INSERT INTO Elevator  values(NULL,?,?,?)", new Object[]{e.getElevatorNumber(), e.getStatus(), e.getComment()});
             }
+            for (User u : u_list
+            ) {
+                db.execSQL("INSERT INTO User values(NULL,?,?,?,?)",new Object[]{u.getUserName(),u.getUserPhone(),u.getUserPasswordHash(),u.getUserHead()});
+            }
+            db.close();
+            configEditor.putBoolean("first_add",false);
+            configEditor.apply();
         }
 
 
