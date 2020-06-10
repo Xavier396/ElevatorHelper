@@ -1,22 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
-
-    <TextView
-        android:id="@+id/text_dashboard"
+    <LinearLayout
+        android:id="@+id/contain1"
+        android:paddingTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="选择电梯"
+            />
+        <Spinner
+            android:id="@+id/elevator_choice"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:spinnerMode="dialog"
+            android:layout_below="@+id/lable1"
+            android:layout_weight="9"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contain2"
+        android:paddingTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contain1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/comments"/>
+        <EditText
+            android:id="@+id/comment"
+            android:lines="9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contain3"
+        android:paddingTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contain2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="@string/submit"/>
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+             android:text="@string/reset"
+            />
+    </LinearLayout>
+
+   
+</RelativeLayout>

@@ -21,7 +21,7 @@ public class DBMaker extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql1="create table Elevator (id INTEGER PRIMARY KEY AUTOINCREMENT,elevator_number VARCHAR(255),elevator_status INTEGER,elevator_comment VARCHAR(255))";
 
-        String sql2="create table User (id INTEGER PRIMARY KEY AUTOINCREMENT,user_name VARCHAR(255),user_phone VARCHAR(20),user_password_hash VARCHAR(50),user_head VARCHAR(10))";
+        String sql2="create table User (id INTEGER PRIMARY KEY AUTOINCREMENT,user_name VARCHAR(255),user_phone VARCHAR(20),user_password_hash VARCHAR(50),user_head VARCHAR(10),icon_head INTEGER)";
 
         String sql3="create table Issue (id INTEGER PRIMARY KEY AUTOINCREMENT,elevator_location VARCHAR(255),elevator_issue VARCHAR(255),elevator_time VARCHAR(50) )";
 

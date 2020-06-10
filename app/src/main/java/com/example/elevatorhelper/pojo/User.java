@@ -11,6 +11,7 @@ public class User {
     private String userPhone;
     private String userPasswordHash;
     private String userHead;
+    private Integer iconHead;
 
     public Integer getId() {
         return id;
@@ -51,4 +52,13 @@ public class User {
     public void setUserHead(String userHead) {
         this.userHead = userHead;
     }
+
+    public Integer getIconHead() {
+        return iconHead;
+    }
+
+    public void setIconHead(Integer iconHead) {
+        this.iconHead = iconHead;
+    }
+
 }

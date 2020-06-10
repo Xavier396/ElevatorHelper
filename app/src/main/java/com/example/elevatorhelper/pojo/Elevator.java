@@ -11,7 +11,7 @@ public class Elevator  implements Serializable {
     private static final long serialVersionUID = 3829319987286118458L;
     private Integer id;
     private String elevatorNumber;
-    /**状态0：正常；状态1、停止运行；状态2：施工中；状态3：其他；*/
+    /**状态0：正常；状态1、停止运行；状态2：施工中；状态3：维护；*/
     private Integer status;
     private String comment;
 

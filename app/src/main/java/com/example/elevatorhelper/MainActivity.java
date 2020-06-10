@@ -1,8 +1,5 @@
 package com.example.elevatorhelper;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,6 +11,9 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.elevatorhelper.Impl.DBMaker;
 import com.example.elevatorhelper.databinding.ActivityMainBinding;
@@ -78,10 +78,20 @@ public class MainActivity extends AppCompatActivity {
         //写9条用户消息和1条管理员消息
         for (int j = 0; j < 9; j++) {
             User u = new User();
+//            Resources res=
             u.setUserHead("User");
             u.setUserName(RandomStringUtils.random(5, letters));
             u.setUserPasswordHash(String.valueOf("123456".hashCode()));
             u.setUserPhone(RandomStringUtils.random(11, numbers));
+            if (j%2==0)
+            {
+                u.setIconHead(R.drawable.ic_boy_1);
+            }
+            else
+            {
+                u.setIconHead(R.drawable.ic_girl_1);
+            }
+//            u.setUserHead();
             u_list.add(u);
         }
         User admin = new User();
@@ -91,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         admin.setUserHead("Admin");
         u_list.add(admin);
 
-        SharedPreferences appConfig = getPreferences(MODE_PRIVATE);
+        SharedPreferences appConfig = getSharedPreferences("appConfig",MODE_PRIVATE);
         SharedPreferences.Editor configEditor = appConfig.edit();
         DBMaker dbMaker = new DBMaker(getApplicationContext(), "appData.db", null, 1);
 
@@ -103,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
             }
             for (User u : u_list
             ) {
-                db.execSQL("INSERT INTO User values(NULL,?,?,?,?)",new Object[]{u.getUserName(),u.getUserPhone(),u.getUserPasswordHash(),u.getUserHead()});
+                db.execSQL("INSERT INTO User values(NULL,?,?,?,?,?)",new Object[]{u.getUserName(),u.getUserPhone(),u.getUserPasswordHash(),u.getUserHead(),u.getIconHead()});
             }
             db.close();
-            configEditor.putBoolean("first_add",false);
+//            configEditor.putBoolean("first_add",false);//实际使用的时候别忘了把注释取消掉
             configEditor.apply();
         }
 

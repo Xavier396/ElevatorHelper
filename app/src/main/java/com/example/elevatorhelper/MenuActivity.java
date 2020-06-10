@@ -12,6 +12,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+/**
+ * @author yanghaijia
+ */
 public class MenuActivity extends AppCompatActivity {
 
     @Override

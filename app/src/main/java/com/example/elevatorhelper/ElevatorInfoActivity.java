@@ -44,6 +44,8 @@ public class ElevatorInfoActivity extends AppCompatActivity {
             case 3:
                 elevatorStatus.setText(elevatorStatus.getText()+"维护中");
                 break;
+            default:
+                break;
         }
         if (comments==null||comments.trim().isEmpty())
         {
