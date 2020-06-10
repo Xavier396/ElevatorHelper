@@ -2,6 +2,7 @@ package com.example.elevatorhelper.ui.dashboard;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.elevatorhelper.Impl.DBMaker;
+import com.example.elevatorhelper.LoginActivity;
 import com.example.elevatorhelper.R;
 
 import java.util.ArrayList;
@@ -55,7 +57,8 @@ public class DashboardFragment extends Fragment {
             alert.setPositiveButton("去登录", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-//TODO:去到登陆界面
+                    Intent i=new Intent(root.getContext(), LoginActivity.class);
+                    startActivity(i);
                 }
             });
             alert.setNegativeButton("取消", null);
@@ -70,7 +73,8 @@ public class DashboardFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        //TODO:去到登陆界面
+                        Intent i=new Intent(root.getContext(), LoginActivity.class);
+                        startActivity(i);
 
                     }
                 });
@@ -88,7 +92,8 @@ public class DashboardFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        //TODO:去到登陆界面
+                        Intent i=new Intent(root.getContext(), LoginActivity.class);
+                        startActivity(i);
 
                     }
                 });
