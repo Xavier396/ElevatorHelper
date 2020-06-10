@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ElevatorInfoActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/number_of_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/elevator_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="电梯位置:"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/elevator_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="电梯状态:"
+        android:textSize="20sp"/>
+
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/other_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="其他信息:"
+        android:textSize="20sp"/>
+
+
+
+</LinearLayout>

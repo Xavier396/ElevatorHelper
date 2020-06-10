@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="60dp">
     <ImageView
+        android:layout_centerVertical="true"
         android:id="@+id/status_icon"
         android:layout_alignParentEnd="true"
-        android:layout_width="60dp"
-        android:layout_height="60dp"/>
+        android:layout_width="45dp"
+        android:layout_height="45dp"/>
 
     <TextView
         android:id="@+id/elevator_title"

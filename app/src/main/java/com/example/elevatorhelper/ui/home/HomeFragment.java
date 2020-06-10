@@ -1,5 +1,6 @@
 package com.example.elevatorhelper.ui.home;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.elevatorhelper.ElevatorAdapter;
+import com.example.elevatorhelper.ElevatorInfoActivity;
 import com.example.elevatorhelper.Impl.DBMaker;
 import com.example.elevatorhelper.R;
 import com.example.elevatorhelper.pojo.Elevator;
@@ -66,6 +69,17 @@ public class HomeFragment extends Fragment {
                 cursor.moveToNext();//指针移动到下一条
             }
         }
+        ElevatorAdapter adapter=new ElevatorAdapter(eList,root.getContext());
+        rec.setAdapter(adapter);
+        adapter.setOnItemClickListener((v,po)->{
+            po+=1;
+            Intent i=new Intent(root.getContext(), ElevatorInfoActivity.class);
+            i.putExtra("position",po);
+            i.putExtra("title",eList.get(po-1).getElevatorNumber());
+            i.putExtra("status",eList.get(po-1).getStatus());
+            i.putExtra("comment",eList.get(po-1).getComment());
+            startActivity(i);
+        });
 
 
 

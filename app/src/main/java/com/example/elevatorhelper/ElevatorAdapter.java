@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ public class ElevatorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
     private OnItemClickListener onClickListener=null;
 
-    public void setOnClickListener(OnItemClickListener onClickListener) {
+    public void setOnItemClickListener(OnItemClickListener onClickListener) {
         this.onClickListener = onClickListener;
     }
 
@@ -48,21 +49,38 @@ public class ElevatorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         //TODO:绑定页面
+        ((MyViewHolder)holder).title.setText(source.get(position).getElevatorNumber());
+        switch (source.get(position).getStatus()){
+            case 0:
+                ((MyViewHolder)holder).icon.setImageResource(R.drawable.ic_ok);
+                break;
+            case 1:
+                ((MyViewHolder)holder).icon.setImageResource(R.drawable.ic_error);
+                break;
+            case 2:
+                ((MyViewHolder)holder).icon.setImageResource(R.drawable.ic_contributing);
+                break;
+            case 3:
+                ((MyViewHolder)holder).icon.setImageResource(R.drawable.ic_question);
+            default:
+                break;
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return source.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, time, source;
+        public TextView title;
+        public ImageView icon;
 
         public MyViewHolder(View itemView, final OnItemClickListener onClickListener) {
             super(itemView);
-            title = itemView.findViewById(R.id.title);
+            title = itemView.findViewById(R.id.elevator_title);
 //            source = itemView.findViewById(R.id.source);//FIXME：
-            time = itemView.findViewById(R.id.time);
+            icon = itemView.findViewById(R.id.status_icon);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

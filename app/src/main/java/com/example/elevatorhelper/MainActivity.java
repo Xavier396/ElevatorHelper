@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         if (appConfig.getBoolean("first_add", true)) {
             db = dbMaker.getWritableDatabase();
             for (Elevator e : e_list) {
-//TODO：在这里添加SQL生成语句
+//在这里添加SQL生成语句
                 db.execSQL("INSERT INTO Elevator  values(NULL,?,?,?)", new Object[]{e.getElevatorNumber(), e.getStatus(), e.getComment()});
             }
             for (User u : u_list
