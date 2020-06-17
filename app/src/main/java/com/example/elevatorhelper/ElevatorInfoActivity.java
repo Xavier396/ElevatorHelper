@@ -1,15 +1,24 @@
 package com.example.elevatorhelper;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.elevatorhelper.databinding.ActivityElevatorInfoBinding;
 
+import static com.example.elevatorhelper.Constant.*;
+
 public class ElevatorInfoActivity extends AppCompatActivity {
  TextView numberOfList,elevatorNumber,elevatorStatus,otherInfo;
+ Button edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +31,12 @@ public class ElevatorInfoActivity extends AppCompatActivity {
         String title=i.getStringExtra("title");
         Integer status=i.getIntExtra("status",0);
         String comments=i.getStringExtra("comment");
+        Integer id=i.getIntExtra("id",0);
         numberOfList=aeb.numberOfList;
         elevatorNumber=aeb.elevatorNumber;
         elevatorStatus=aeb.elevatorStatus;
         otherInfo=aeb.otherInfo;
+        SharedPreferences sp=getSharedPreferences(SHARED_PREFERENCE_NAME,MODE_PRIVATE);
         /*对信息的填充*/
         numberOfList.setText("第"+po+"条");
         elevatorNumber.setText(elevatorNumber.getText()+title);

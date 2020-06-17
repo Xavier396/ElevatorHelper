@@ -23,10 +23,18 @@ import com.example.elevatorhelper.pojo.User;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static com.example.elevatorhelper.Constant.DB_NAME;
+import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_NAME;
+import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_FIRST_ADD;
+import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_IS_ADMIN;
+import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_IS_LOGIN_NOW;
+import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_LOGIN_NAME;
 
 public class MainActivity extends AppCompatActivity {
     private Intent i;
@@ -81,31 +89,32 @@ public class MainActivity extends AppCompatActivity {
 //            Resources res=
             u.setUserHead("User");
             u.setUserName(RandomStringUtils.random(5, letters));
-            u.setUserPasswordHash(String.valueOf("123456".hashCode()));
+            u.setUserPasswordHash("123456");
             u.setUserPhone(RandomStringUtils.random(11, numbers));
             if (j%2==0)
             {
-                u.setIconHead(R.drawable.ic_boy_1);
+                u.setIconHead(1);
             }
             else
             {
-                u.setIconHead(R.drawable.ic_girl_1);
+                u.setIconHead(4);
             }
 //            u.setUserHead();
             u_list.add(u);
         }
         User admin = new User();
         admin.setUserPhone("17858674587");
-        admin.setUserPasswordHash(String.valueOf("yhjzshhh!".hashCode()));
+        admin.setUserPasswordHash("yhjzshhh!");
         admin.setUserName("yhjzsAdmin");
         admin.setUserHead("Admin");
+        admin.setIconHead(3);
         u_list.add(admin);
 
-        SharedPreferences appConfig = getSharedPreferences("appConfig",MODE_PRIVATE);
+        SharedPreferences appConfig = getSharedPreferences(SHARED_PREFERENCE_NAME,MODE_PRIVATE);
         SharedPreferences.Editor configEditor = appConfig.edit();
-        DBMaker dbMaker = new DBMaker(getApplicationContext(), "appData.db", null, 1);
+        DBMaker dbMaker = new DBMaker(getApplicationContext(), DB_NAME, null, 1);
 
-        if (appConfig.getBoolean("first_add", true)) {
+        if (appConfig.getBoolean(SHARED_PREFERENCE_VALUE_FIRST_ADD, true)) {
             db = dbMaker.getWritableDatabase();
             for (Elevator e : e_list) {
 //在这里添加SQL生成语句
@@ -116,7 +125,15 @@ public class MainActivity extends AppCompatActivity {
                 db.execSQL("INSERT INTO User values(NULL,?,?,?,?,?)",new Object[]{u.getUserName(),u.getUserPhone(),u.getUserPasswordHash(),u.getUserHead(),u.getIconHead()});
             }
             db.close();
-//            configEditor.putBoolean("first_add",false);//实际使用的时候别忘了把注释取消掉
+            //App是否初次运行？不是的话就不会再往里面写数据了
+            configEditor.putBoolean(SHARED_PREFERENCE_VALUE_FIRST_ADD,false);
+            //是否管理员
+            configEditor.putBoolean(SHARED_PREFERENCE_VALUE_IS_ADMIN,false);
+            //登录名称
+            configEditor.putString(SHARED_PREFERENCE_VALUE_LOGIN_NAME,null);
+            //是不是处在登陆状态
+            configEditor.putBoolean(SHARED_PREFERENCE_VALUE_IS_LOGIN_NOW,false);
+
             configEditor.apply();
         }
 

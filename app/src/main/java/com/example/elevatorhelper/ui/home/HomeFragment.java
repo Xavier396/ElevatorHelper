@@ -78,6 +78,7 @@ public class HomeFragment extends Fragment {
             i.putExtra("title",eList.get(po-1).getElevatorNumber());
             i.putExtra("status",eList.get(po-1).getStatus());
             i.putExtra("comment",eList.get(po-1).getComment());
+            i.putExtra("id",eList.get(po-1).getComment());
             startActivity(i);
         });
 
