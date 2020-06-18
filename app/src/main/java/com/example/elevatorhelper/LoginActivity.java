@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,9 +41,11 @@ public class LoginActivity extends AppCompatActivity {
     Button login, reset;
     EditText username, password;
     RadioGroup userRole;
+    TextView jumpToRegister;
     private String userNameValue;
     private String passwordContent;
     private int whichUser;
+
 
 
     @Override
@@ -63,6 +66,11 @@ public class LoginActivity extends AppCompatActivity {
         password = alb.passwordArea;
         iconHead = alb.headIcon;
         userRole = alb.headSelection;
+        jumpToRegister=alb.jumpToRegister;
+        jumpToRegister.setOnClickListener(v->{
+            Intent intnt=new Intent(getApplicationContext(),RegisterActivity.class);
+            startActivity(intnt);
+        });
 //先读数据，再进行比较
         Cursor c = dbMaker.getReadableDatabase().query("User", null, null, null, null, null, null, null);
         if (c.getCount() > 0) {
@@ -151,7 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                 ab.create().show();
             }
             else if(userRole.getCheckedRadioButtonId()==R.id.is_admin&& !"Admin".equals(userList.get(whichUser).getUserHead())||
-            userRole.getCheckedRadioButtonId()==R.id.is_user&&!"User".equals(userList.get(whichUser).getIconHead())
+            userRole.getCheckedRadioButtonId()==R.id.is_user&&!"User".equals(userList.get(whichUser).getUserHead())
             )
             {
                 AlertDialog.Builder ab = new AlertDialog.Builder(this, R.style.Theme_MaterialComponents_DayNight_Dialog_Alert);

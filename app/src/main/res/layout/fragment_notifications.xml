@@ -24,7 +24,7 @@
             android:paddingBottom="60dp">
 
             <LinearLayout
-                android:background="@drawable/border"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -36,35 +36,34 @@
                     android:stretchColumns="0">
 
                     <!--                //.9.png图片圆角的实现。-->
-                    <TableRow
+                    <LinearLayout
                         android:id="@+id/more_page_row0"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
-
+                        android:background="@drawable/border"
+                        android:orientation="horizontal"
                         android:paddingTop="8dp"
                         android:paddingBottom="16dp">
 
-                        <TextView
-                            android:id="@+id/user_name"
-                            android:layout_width="match_parent"
+                        <ImageView
+                            android:id="@+id/user_icon"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawableStart="@drawable/ic_boy_1_64"
-                            android:drawablePadding="10dp"
-                            android:gravity="center_vertical"
-                            android:paddingStart="17dp"
-                            android:text="未登录"
+                            android:src="@drawable/ic_basic_icon_64"/>
 
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:id="@+id/user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="40dp"
+                            android:text="未登录"
                             android:textColor="#C6C6C6"
                             android:textSize="20sp" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:gravity="center_vertical"
-                            android:paddingRight="20dp" />
-                    </TableRow>
+                    </LinearLayout>
                 </TableLayout>
             </LinearLayout>
 
