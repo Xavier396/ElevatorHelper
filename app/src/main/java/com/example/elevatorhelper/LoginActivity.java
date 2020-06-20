@@ -189,6 +189,8 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.putBoolean(SHARED_PREFERENCE_VALUE_IS_ADMIN,("Admin".equals(userList.get(whichUser).getUserHead())));
                                         //头像是哪个
                                         editor.putInt(SHARED_PREFERENCE_VALUE_ICON_HEAD,userList.get(whichUser).getIconHead());
+                                        //获取到数据库里面的id
+                                        editor.putInt("id",userList.get(whichUser).getId());
                                         editor.apply();
                                        startActivity(intent);
                                         String userResponseToken = response.getTokenResult();

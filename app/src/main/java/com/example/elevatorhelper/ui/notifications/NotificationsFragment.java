@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,12 +21,16 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.elevatorhelper.LoginActivity;
 import com.example.elevatorhelper.MenuActivity;
 import com.example.elevatorhelper.R;
+import com.example.elevatorhelper.UserDetailActivity;
 
 import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_NAME;
+import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_FIRST_ADD;
 import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_ICON_HEAD;
 import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_IS_ADMIN;
+import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_IS_LOGIN_NOW;
 import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_LOGIN_NAME;
 
 /**
@@ -53,40 +58,79 @@ public class NotificationsFragment extends Fragment {
         editor=sp.edit();
         tr0=root.findViewById(R.id.more_page_row0);
         tr1=root.findViewById(R.id.more_page_row1);
+        tr1.setEnabled(sp.getBoolean(SHARED_PREFERENCE_VALUE_IS_LOGIN_NOW,false));
         tr2=root.findViewById(R.id.more_page_row2);
         tr3=root.findViewById(R.id.more_page_row3);
         userName=root.findViewById(R.id.user_name);
         icon=root.findViewById(R.id.user_icon);
 
-        userName.setText(sp.getString(SHARED_PREFERENCE_VALUE_LOGIN_NAME,"未登录"));
+        userName.setText(sp.getString(SHARED_PREFERENCE_VALUE_LOGIN_NAME,"未登录,点击登录"));
         setIcon(sp.getInt(SHARED_PREFERENCE_VALUE_ICON_HEAD,0),icon);
-
-        tr2.setOnClickListener(v->{
-            AlertDialog.Builder ab = new AlertDialog.Builder(root.getContext(), R.style.Theme_MaterialComponents_DayNight_Dialog_Alert);
-            ab.setTitle("退出");
-            ab.setIcon(R.drawable.ic_warning);
-            ab.setMessage("您真的要退出吗？");
-            ab.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                }
-            });
-            ab.setPositiveButton("确认", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    editor.clear();
-                    editor.apply();
-                    Intent i=new Intent(root.getContext(),MenuActivity.class);
-                    startActivity(i);
-                }
-            });
-            ab.create().show();
+        tr0.setOnClickListener(v->{
+            if (!sp.getBoolean(SHARED_PREFERENCE_VALUE_IS_LOGIN_NOW,false))
+            {
+                Intent i=new Intent(root.getContext(),LoginActivity.class);
+                startActivity(i);
+            }
+            else {
+                Toast.makeText(root.getContext(), "欢迎您"+userName.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
         });
 
 
 
-        tr3.setVisibility(sp.getBoolean(SHARED_PREFERENCE_VALUE_IS_ADMIN,false)==true?View.VISIBLE:View.INVISIBLE);
+        tr1.setOnClickListener(v->{
+            Intent i=new Intent(root.getContext(), UserDetailActivity.class);
+            startActivity(i);
+        });
+
+        tr2.setOnClickListener(v->{
+           if (!sp.getBoolean(SHARED_PREFERENCE_VALUE_IS_LOGIN_NOW,false))
+           {
+               AlertDialog.Builder ab = new AlertDialog.Builder(root.getContext(), R.style.Theme_MaterialComponents_DayNight_Dialog_Alert);
+               android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(root.getContext(), R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+               alert.setTitle(R.string.not_login);
+               alert.setMessage(R.string.please_login_first);
+               alert.setPositiveButton(R.string.go_login, new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+
+                       Intent i=new Intent(root.getContext(), LoginActivity.class);
+                       startActivity(i);
+
+                   }
+               });
+               alert.setNegativeButton(R.string.cancel, null);
+               alert.create().show();
+           }
+           else {
+               AlertDialog.Builder ab = new AlertDialog.Builder(root.getContext(), R.style.Theme_MaterialComponents_DayNight_Dialog_Alert);
+               ab.setTitle("退出");
+               ab.setIcon(R.drawable.ic_warning);
+               ab.setMessage("您真的要退出吗？");
+               ab.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+
+                   }
+               });
+               ab.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       editor.clear();
+                       editor.putBoolean(SHARED_PREFERENCE_VALUE_FIRST_ADD,false);
+                       editor.apply();
+                       Intent i=new Intent(root.getContext(),MenuActivity.class);
+                       startActivity(i);
+                   }
+               });
+               ab.create().show();
+           }
+        });
+
+
+
+        tr3.setVisibility(sp.getBoolean(SHARED_PREFERENCE_VALUE_IS_ADMIN, false) ?View.VISIBLE:View.INVISIBLE);
 
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

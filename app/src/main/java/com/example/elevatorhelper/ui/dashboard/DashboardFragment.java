@@ -151,7 +151,7 @@ public class DashboardFragment extends Fragment {
         List<String> listOfString = new ArrayList<>();
         /*从数据库中读数据*/
 
-        Cursor cursor = dbMaker.getReadableDatabase().query("Elevator", null, null, null, null, null, null);
+        Cursor cursor = dbMaker.getReadableDatabase().query("Elevator", null, "", null, null, null, null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             for (int i = 0; i < cursor.getCount(); i++) {

@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/icon_setter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="16dp"
+                android:text="头像"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/icon_self"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+
+                android:layout_toLeftOf="@+id/arrow_1"
+                android:paddingRight="10dp"
+                android:src="@drawable/ic_basic_icon_64" />
+
+            <ImageView
+                android:id="@+id/arrow_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_triangle_arrow_r" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/change_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="45dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/icon1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="icon1" />
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_boy_1_64" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/icon2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="icon2" />
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_boy_2_64" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="45dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/icon3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="icon3" />
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_boy_3_64" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/icon4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="icon4" />
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_girl_1_64" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="45dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/icon5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="icon5" />
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_girl_2_64" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/icon6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="icon6" />
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_girl_3_64" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/comfirm_icon_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="保存" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/user_name_setter"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="16dp"
+                android:text="用户名"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_2"
+                android:textColor="#8f8f8f"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/arrow_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_triangle_arrow_r" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/password_setter"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="16dp"
+                android:text="密码"
+                android:textSize="25sp" />
+
+            <TextView
+
+
+                android:id="@+id/user_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_3"
+                android:text="******"
+                android:textColor="#8f8f8f"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/arrow_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_triangle_arrow_r" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请输入您的旧密码"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/old_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请输入您的新密码"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/new_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请再次输入您的新密码"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/repeat_new_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/submit_password_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="提交"
+
+                />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/telephone_setter"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="16dp"
+                android:text="联系电话"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/user_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_4"
+                android:text=""
+                android:textColor="#8f8f8f"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/arrow_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_triangle_arrow_r" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/change_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请输入原始电话号码"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/old_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请输入新的电话号码"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/new_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+
+            <Button
+                android:id="@+id/submit_phone_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="提交"
+
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

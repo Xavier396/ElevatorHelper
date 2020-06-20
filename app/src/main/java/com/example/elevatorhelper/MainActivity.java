@@ -38,7 +38,7 @@ import static com.example.elevatorhelper.Constant.SHARED_PREFERENCE_VALUE_LOGIN_
 
 public class MainActivity extends AppCompatActivity {
     private Intent i;
-    private int x = 5;
+    private int x = 3;
     private TextView down_count;
     private ImageView load, main_img;
     private Handler handler;
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
          * */
         Timer t = new Timer();
 
-        CountDownTimer cd = new CountDownTimer(5000, 1000) {
+        CountDownTimer cd = new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long l) {
 
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         cd.start();
-        t.schedule(task, 5000);
+        t.schedule(task, 3000);
 
     }
 }
